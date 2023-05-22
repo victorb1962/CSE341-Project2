@@ -33,6 +33,8 @@ GET http://localhost:8080/contact/646a8ac28b9fb2279db1b82f HTTP/1.1
 
 // PRODUCTION Deploy
 
+GET http://victor-341w05.onrender.com/api-docs HTTP/1.1
+
 ### Get all artwork
 GET https://victor-341w05.onrender.com/artwork
 
