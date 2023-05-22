@@ -1,0 +1,52 @@
+[
+  {
+    "artTitle": "Irises",
+    "artYear": "1889",
+    "artPeriod": "Impressionism",
+    "artDesc": "",
+    "artType": "Oil",
+    "artLocation": "J. Paul Getty Museum",
+    "artDonated": "",
+    "artFile": "irises.jpg"
+  },
+  {
+    "artTitle": "Starry Night",
+    "artYear": "1889",
+    "artPeriod": "Post-impressionism",
+    "artDesc": "",
+    "artType": "Oil",
+    "artLocation": "Museum of Modern Art",
+    "artDonated": "Lillie P. Bliss Bequest",
+    "artFile": "starrynight.jpg"
+  },
+  {
+    "artTitle": "Sunflowers",
+    "artYear": "1888",
+    "artPeriod": "Post-impressionism",
+    "artDesc": "",
+    "artType": "Oil on canvas",
+    "artLocation": "London National Gallery",
+    "artDonated": "",
+    "artFile": "suflowers.jpg"
+  },
+  {
+    "artTitle": "Night Watch",
+    "artYear": "1642",
+    "artPeriod": "Baroque",
+    "artDesc": "The Night Watch is one of the most famous Dutch paintings",
+    "artType": "Oil on canvas",
+    "artLocation": "Amsterdam Museum",
+    "artDonated": "",
+    "artFile": "nightwatch.jpg"
+  },
+  {
+    "artTitle": "Storm on the Sea of Galilee",
+    "artYear": "1633",
+    "artPeriod": "Dutch Golden Age",
+    "artDesc": "",
+    "artType": "Oil paint",
+    "artLocation": "Isabelle Stewart Gardner Museum",
+    "artDonated": "",
+    "artFile": "stormgalilee.jpg"
+  }
+]
