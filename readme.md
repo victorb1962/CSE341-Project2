@@ -74,7 +74,7 @@ Test validation rules with:
 - GET / contact / POST, PUT, DELETE
 
 ## Assignment Steps
-- Add PUT and DELETE routes to your API. Verify in MongoDB that these work as intended.
+- Add PUT (UPDATE) and DELETE routes to your API. Verify in MongoDB that these work as intended.
   -- See \controller\contact.js
   -- See \config\ for validation config file 
   -- See \controller\contact.js
