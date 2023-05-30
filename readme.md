@@ -24,6 +24,9 @@ Run npm install and npm start from the backend folder in the terminal
 - npm install eslint-config-prettier eslint-plugin-prettier prettier --dev
 - npm run lint
 - npm run format
+- npm install joi-password-complexity
+- npm install body-parser --save
+- npm install express-validator cors --save
 
 - npm install --save-dev swagger-autogen See https://www.npmjs.com/package/swagger-autogen
 - npm install swagger-ui-express See https://www.npmjs.com/package/swagger-ui-express
@@ -40,22 +43,17 @@ Test the endpoints in the routes.rest file with Rest Client or another similar t
 Browser tests:
 
 1. http://localhost:8080/ < 'Cannot GET /'
-   - Could use routes.rest
+   - Use routes.rest
 2. http://localhost:8080/api-docs
 3. http://localhost:8080/artwork
 4. http://localhost:8080/contact
 
-   - GET / artwork /
-   - GET / artwork / {id}
-   - GET / artwork / POST, PUT, DELETE
-
+   Test validation rules with:
    - GET / contact /
    - GET / contact / {id}
    - GET / contact / POST, PUT, DELETE
 
-5. Verify from MongoDB
-
-6. Before uploading to GitHub run the following to make sure you have no issues
+5. Before uploading to GitHub run the following to make sure you have no issues
 
 - npm run lint - helps to enforce packge.json standards
 - npm run format
@@ -68,10 +66,19 @@ Browser tests:
 9. https://victor-341w05.onrender.com/artwork
 10. https://victor-341w05.onrender.com/contact
 
-- GET / artwork /
-- GET / artwork / {id}
-- GET / artwork / POST, PUT, DELETE
-
+Test validation rules with:
 - GET / contact /
 - GET / contact / {id}
 - GET / contact / POST, PUT, DELETE
+
+## Assignment Steps
+- Add PUT and DELETE routes to your API. Verify in MongoDB that these work as intended.
+  -- See \controller\contact.js
+  -- See \config\ for validation config file 
+  -- See \controller\contact.js
+- Add validation to your routes
+- Add error handling to your routes
+  -- All validation handled in controllers\contact.js
+- Be sure to update your API documentation to include these news routes
+- Push to GitHub.
+- Publish to Render.

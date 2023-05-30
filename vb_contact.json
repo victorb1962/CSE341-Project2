@@ -4,20 +4,26 @@
     "lastName": "Banks",
     "email": "robynbanks@wellsfargo.com",
     "phone": "8019876543",
-    "role": "Curator"
+    "role": "Curator",
+    "username": "RobynB",
+    "password": "abcdef@1234"
   },
   {
     "firstName": "Warren",
     "lastName": "Peace",
     "email": "wpeace@tolstoy.com",
     "phone": "3851234567",
-    "role": "Historian"
+    "role": "Historian",
+    "username": "WarrenP",
+    "password": "abcdef@5678"
   },
   {
     "firstName": "Helen",
     "lastName": "Beck",
     "email": "helen@beckfamily.com",
     "phone": "8018641234",
-    "role": "Art Enthusiast"
+    "role": "Art Enthusiast",
+    "username": "HelenB",
+    "password": "abcdef@9012"
   }
 ]
