@@ -48,7 +48,7 @@ const createContact = async (req, res) => {
   };
 
   if (!req.body.username || !req.body.password) {
-    res.status(400).send({ message: 'Login details can not be empty.' });
+    res.status(400).send({ message: 'Username and Password can not be empty.' });
     return;
   }
   const password = req.body.password;
@@ -72,7 +72,7 @@ const updateContact = async (req, res) => {
   }
 
   if (!req.body.username || !req.body.password) {
-    res.status(400).send({ message: 'Login details can not be empty.' });
+    res.status(400).send({ message: 'Username and Password can not be empty.' });
     return;
   }
   const password = req.body.password;
@@ -113,7 +113,7 @@ const deleteContact = async (req, res) => {
   const contactId = new ObjectId(req.params.id);
 
   if (!contactId) {
-    res.status(400).send({ message: 'Invalid Id Supplied' });
+    res.status(400).send({ message: 'Invalid Id supplied.' });
     return;
   }
 

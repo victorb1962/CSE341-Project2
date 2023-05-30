@@ -270,6 +270,12 @@
             "schema": {
               "type": "object",
               "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
                 "firstName": {
                   "example": "any"
                 },
@@ -283,12 +289,6 @@
                   "example": "any"
                 },
                 "role": {
-                  "example": "any"
-                },
-                "username": {
-                  "example": "any"
-                },
-                "password": {
                   "example": "any"
                 }
               }
