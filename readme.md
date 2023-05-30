@@ -24,6 +24,7 @@ Run npm install and npm start from the backend folder in the terminal
 - npm install eslint-config-prettier eslint-plugin-prettier prettier --dev
 - npm run lint
 - npm run format
+- npm install joi
 - npm install joi-password-complexity
 - npm install body-parser --save
 - npm install express-validator cors --save
@@ -58,6 +59,7 @@ Browser tests:
 - npm run lint - helps to enforce packge.json standards
 - npm run format
 - edit swagger.js to use production host: https://victor-341w01.onrender.com/
+- npm run swagger - to recreate swagger.json
 
 6. Push to GitHub
 7. Confirm sync with Render
