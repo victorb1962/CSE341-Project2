@@ -6,9 +6,9 @@ const doc = {
     description: 'Artwork & Art Curator APIs'
   },
 
-  host: 'localhost:8080', // enable for local with 'http'
-  // host: 'victor-341w05.onrender.com', // enable for production with 'https'
-  schemes: ['http']
+  // host: 'localhost:8080', // enable for local with 'http'
+  host: 'victor-341w05.onrender.com', // enable for production with 'https'
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
