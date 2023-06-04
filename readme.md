@@ -50,6 +50,7 @@ Browser tests:
 4. http://localhost:8080/contact
 
    Test validation rules with:
+
    - GET / contact /
    - GET / contact / {id}
    - GET / contact / POST, PUT, DELETE
@@ -69,14 +70,16 @@ Browser tests:
 10. https://victor-341w05.onrender.com/contact
 
 Test validation rules with:
+
 - GET / contact /
 - GET / contact / {id}
 - GET / contact / POST, PUT, DELETE
 
 ## Assignment Steps
+
 - Add PUT (UPDATE) and DELETE routes to your API. Verify in MongoDB that these work as intended.
   -- See \controller\contact.js
-  -- See \config\ for validation config file 
+  -- See \config\ for validation config file
   -- See \controller\contact.js
 - Add validation to your routes
 - Add error handling to your routes
@@ -85,11 +88,12 @@ Test validation rules with:
 - Push to GitHub.
 - Publish to Render.
 
-
 # Week 7 - Auth0 incorporated
+
 - see D:\BYU_files\2023-02 SPRING semester\CSE341_WebServices\CSE341-node\w07\w07_class\readme.md for more details
 
 ##
+
 - edit .env
 - edit server.js
 
@@ -102,3 +106,4 @@ Browser test: localhost:3000
 ### To Do for Production UPLOAD
 
 - edit env file for production (https)
+- add environmental variables to Render - since .env files is never deployed
