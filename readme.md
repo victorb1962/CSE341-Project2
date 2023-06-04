@@ -1,4 +1,4 @@
-# Instructor Example is not to be copied
+# Week 6
 
 This is an example of a solution to demonstrate to students various ways they could set up their projects. Do not copy from this project, or clone it to build your own application. Use it to learn.
 
@@ -84,3 +84,21 @@ Test validation rules with:
 - Be sure to update your API documentation to include these news routes
 - Push to GitHub.
 - Publish to Render.
+
+
+# Week 7 - Auth0 incorporated
+- see D:\BYU_files\2023-02 SPRING semester\CSE341_WebServices\CSE341-node\w07\w07_class\readme.md for more details
+
+##
+- edit .env
+- edit server.js
+
+VS Code / Terminal:
+npm install express express-openid-connect --save
+npm start
+
+Browser test: localhost:3000
+
+### To Do for Production UPLOAD
+
+- edit env file for production (https)
