@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
+const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 
 // const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+const port = process.env.PORT || 3000;
 
 // Auth0 setup here and in .env file
-const { auth, requiresAuth } = require('express-openid-connect');
 const config = {
   authRequired: false,
   auth0Logout: true,
@@ -15,6 +19,15 @@ const config = {
   clientID: process.env.CLIENT_ID,
   issuerBaseURL: process.env.ISSUER_BASE_URL
 };
+
+// establish a connection to the mongodb database
+mongodb.initDb((err) => {
+  if (err) {
+    console.log('Connection to database failed: ' + err);
+  } else {
+    console.log('Connected to database!');
+  }
+});
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
@@ -29,17 +42,8 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
-const port = process.env.PORT || 3000;
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
-});
-
-mongodb.initDb((err) => {
-  if (err) {
-    console.log(err);
-  } // else {
-    // app.listen(port);
-    // console.log(`Connected to DB and listening on ${port}`);
-  // }
 });

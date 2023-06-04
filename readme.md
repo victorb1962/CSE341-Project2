@@ -101,9 +101,20 @@ VS Code / Terminal:
 npm install express express-openid-connect --save
 npm start
 
-Browser test: localhost:3000
+Browser tests: 
+- localhost:3000
+- localhost:3000/login    - use google login & authentication
+- localhost:3000/profile  - shows my google user details incl link to thumbnail
+- localhost:3000/api-docs
+- localhost:3000/logout
 
 ### To Do for Production UPLOAD
 
 - edit env file for production (https)
 - add environmental variables to Render - since .env files is never deployed
+
+- edit swagger.js to use production host: https://victor-341w01.onrender.com/
+- npm run swagger - to recreate swagger.json
+
+6. Push to GitHub
+7. Confirm sync with Render
