@@ -1,0 +1,394 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Vics CSE341 Portfolio - Project 2",
+    "description": "Artwork & Art Curator APIs",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Contact",
+      "description": "Requests related to contacts (Requires Log in to access)"
+    },
+    {
+      "name": "Artwork",
+      "description": "Requests related to artwork (Requires Log in to access)"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "Route to the Swagger docs (Requires Log in to access)",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth": {
+      "get": {
+        "description": "Sends the authorization request to Github",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/": {
+      "get": {
+        "description": "Sends to a log-in page",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/oauth-callback": {
+      "get": {
+        "description": "Callback used by Github",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/error": {
+      "get": {
+        "description": "Issues an error if authentication fails",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    
+    "/artwork/": {
+      "get": {
+        "tags": ["Artwork"],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Artwork"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "artTitle": {
+                  "example": "any"
+                },
+                "artYear": {
+                  "example": "any"
+                },
+                "artPeriod": {
+                  "example": "any"
+                },
+                "artDesc": {
+                  "example": "any"
+                },
+                "artType": {
+                  "example": "any"
+                },
+                "artLocation": {
+                  "example": "any"
+                },
+                "artDonated": {
+                  "example": "any"
+                },
+                "skillLevel": {
+                  "artFile": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/artwork/{id}": {
+      "get": {
+        "tags": ["Artwork"],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Artwork"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "artTitle": {
+                  "example": "any"
+                },
+                "artYear": {
+                  "example": "any"
+                },
+                "artPeriod": {
+                  "example": "any"
+                },
+                "artDesc": {
+                  "example": "any"
+                },
+                "artType": {
+                  "example": "any"
+                },
+                "artLocation": {
+                  "example": "any"
+                },
+                "artDonated": {
+                  "example": "any"
+                },
+                "skillLevel": {
+                  "artFile": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Artwork"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contact/": {
+      "get": {
+        "tags": ["Contact"],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Contact"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "role": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"                  
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contact/{id}": {
+      "get": {
+        "tags": ["Contact"],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Get a specfic contact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Contact"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "role": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contact"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

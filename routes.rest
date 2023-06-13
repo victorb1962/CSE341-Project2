@@ -1,54 +1,58 @@
 // LOCALHOST 
-GET http://localhost:8080/api-docs HTTP/1.1
+GET http://localhost:3000/api-docs HTTP/1.1
 
-### Get all artwork
-GET http://localhost:8080/artwork/ HTTP/1.1
+### GET all artwork
+GET http://localhost:3000/artwork/ HTTP/1.1
 
-### Get artwork by id
-GET http://localhost:8080/artwork/644f6c8d9823b4c1e691b60a HTTP/1.1
+### GET artwork by id
+GET http://localhost:3000/artwork/644f6c8d9823b4c1e691b60a HTTP/1.1
 
-### Create artwork
-POST http://localhost:8080/artwork HTTP/1.1 content-type: application/json
+### CREATE artwork
+POST http://localhost:3000/artwork HTTP/1.1 
+content-type: application/json
 {
 "artTitle": "Head of a Woman", "artYear": "1508", "artPeriod": "xxxx xxxxxxxxxxx", "artDesc": "also known as La Scapigliata", "artType": "Oil paint", "artLocation": "Galleria Nazionale di Parma", "artDonated": "", "artFile": "headwoman.jpg"
 }
 
-### Change artwork by id
-PUT http://localhost:8080/artwork/63f1af8bc8ad51af18312fd0 HTTP/1.1 content-type: application/json
+### CHANGE artwork by id
+PUT http://localhost:3000/artwork/63f1af8bc8ad51af18312fd0 HTTP/1.1 
+content-type: application/json
 {
 "artPeriod": "High Renaissance"
 }
 
 ### DELETE artwork by id
-DELETE http://localhost:8080/artwork/63e859e9bd16449396cca6ad HTTP/1.1
-
+DELETE http://localhost:3000/artwork/63e859e9bd16449396cca6ad HTTP/1.1
 
 ### Repeat for contact collection.
-### Get all contacts
-GET http://localhost:8080/contact/ HTTP/1.1
 
-### Get contact by id
-GET http://localhost:8080/contact/647590edd000510a473629b1 HTTP/1.1
+### GET all contacts
+GET http://localhost:3000/contact/ HTTP/1.1
+
+### GET contact by id
+GET http://localhost:3000/contact/647590edd000510a473629b1 HTTP/1.1
 
 
 // PRODUCTION Deploy
 
 GET http://victor-341w05.onrender.com/api-docs HTTP/1.1
 
-### Get all artwork
+### GET all artwork
 GET https://victor-341w05.onrender.com/artwork
 
-### Get artwork by id
+### GET artwork by id
 GET https://victor-341w05.onrender.com/artwork/644f6c8d9823b4c1e691b60a
 
-### Create artwork
-POST https://victor-341w05.onrender.com/artwork HTTP/1.1 content-type: application/json
+### CREATE artwork
+POST https://victor-341w05.onrender.com/artwork HTTP/1.1 
+content-type: application/json
 {
 "artTitle": "Head of a Woman", "artYear": "1508", "artPeriod": "xxxx xxxxxxxxxxx", "artDesc": "also known as La Scapigliata", "artType": "Oil paint", "artLocation": "Galleria Nazionale di Parma", "artDonated": "", "artFile": "headwoman.jpg"
 }
 
-### Change artwork by id
-PUT https://victor-341w05.onrender.com/artwork/63f1af8bc8ad51af18312fd0 HTTP/1.1 content-type: application/json
+### CHANGE artwork by id
+PUT https://victor-341w05.onrender.com/artwork/63f1af8bc8ad51af18312fd0 HTTP/1.1 
+content-type: application/json
 {
 "artPeriod": "High Renaissance"
 }
@@ -56,11 +60,17 @@ PUT https://victor-341w05.onrender.com/artwork/63f1af8bc8ad51af18312fd0 HTTP/1.1
 ### DELETE artwork by id
 DELETE https://victor-341w05.onrender.com/artwork/63e859e9bd16449396cca6ad HTTP/1.1
 
+### Repeat for contact collection.
 
-### PUT contact
+### GET all contacts
+GET https://victor-341w05.onrender.com/contacts
+
+### GET contact by id
+GET https://victor-341w05.onrender.com/contacts/646a8ac28b9fb2279db1b82f
+
+### CHANGE contact
 PUT https://victor-341w05.onrender.com/artwork/64605f0f470f6bc234fd04cd HTTP/1.1
 content-type: application/json
-
 {
     "firstName":"Sarah",
     "lastName":"Birch",
@@ -69,13 +79,6 @@ content-type: application/json
     "role":"Art Restorer"
 }
 
-
 ### DELETE contact
 DELETE https://victor-341w05.onrender.com/contacts/64605f0f470f6bc234fd04cd HTTP/1.1
 
-### Get all contacts
-GET https://victor-341w05.onrender.com/contacts
-
-
-### Get contact by id
-GET https://victor-341w05.onrender.com/contacts/646a8ac28b9fb2279db1b82f

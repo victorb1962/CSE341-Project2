@@ -1,0 +1,353 @@
+# 1. Edit and validate API at: https://app.swaggerhub.com/apis/victorb62/Artwork/1.0.0
+# 2. Cut/Paste code to: https://editor.swagger.io/
+# 3. Use File / Covert and save as JSON
+# 4. Save to file for this project: D:\BYU_files\2023-02 SPRING semester\CSE341_WebServices\CSE341-Project2\swaggerDesign.json
+
+swagger: "2.0"
+
+info:
+  description: Artwork & Art Curator APIs
+  version: 1.0.0
+  title: Vics CSE341 Portfolio - Project 2
+  contact:
+    email: victorb62@byui.edu
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+host: localhost:3000
+# host: 'victor-341w05.onrender.com
+
+basePath: /
+
+schemes:
+  - http
+  - https
+
+tags:
+  - name: artwork
+    description: Maintain artwork catalog
+  - name: contact
+    description: Maintain contacts
+
+paths:
+  /artwork:
+    post:
+      tags:
+      - artwork
+      summary: Add a new artwork to the catalog
+      operationId: createArtwork
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Artwork to be added to the catalog
+        required: true
+        schema:
+          $ref: '#/definitions/artwork'
+      responses:
+        405:
+          description: Invalid input
+      security:
+      - artwork_auth:
+        - write:artwork
+        - read:artwork
+    
+    get:
+      tags:
+      - artwork
+      summary: Get all artwork from catalog
+      operationId: getAllArtwork
+      produces:
+      - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/artwork'
+      security:
+      - api_key: []
+
+  /artwork/{artworkId}:
+    get:
+      tags:
+      - artwork
+      summary: Get artwork by Id
+      description: Returns a single artwork
+      operationId: getArtwork
+      produces: 
+      - application/json
+      parameters:
+      - name: artworkId
+        in: path
+        description: Id of artwork to return
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/artwork'
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Artwork not found
+      security:
+      - api_key: []
+    
+    put:
+      tags:
+      - artwork
+      summary: Update artwork by Id
+      operationId: updateArtwork
+      produces:
+      - application/json
+      parameters:
+      - name: artworkId
+        in: path
+        description: Id of artwork to update
+        required: true
+        type: string
+      responses:
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Artwork not found
+        405:
+          description: Validation exception
+      security:
+      - artwork_auth:
+        - write:artwork
+        - read:artwork
+        
+    delete:
+      tags:
+      - artwork
+      summary: Delete artwork by Id
+      operationId: deleteArtwork
+      produces:
+      - application/json
+      parameters:
+      - name: artworkId
+        in: path
+        description: Id of artwork to delete
+        required: true
+        type: string
+      responses:
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Artwork not found
+      security:
+      - api_key: []
+
+  /contact:
+    post:
+      tags:
+      - contact
+      summary: Add a new contact
+      description: This can only be done by the logged in user.
+      operationId: createContact
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created a contact 
+        required: true
+        schema:
+          $ref: '#/definitions/contact'
+      responses:
+        405:
+          description: Invalid input
+
+    get:
+      tags:
+      - contact
+      summary: Get all contacts
+      operationId: getAllContact
+      produces:
+      - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/contact'
+      security:
+      - api_key: []
+
+  /contact/login:
+    get:
+      tags:
+      - contact
+      summary: Log contact into the system
+      operationId: loginContact
+      produces:
+      - application/json
+      parameters:
+      - name: contactId
+        in: query
+        description: The contact Id for login
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/contact'
+          headers:
+            X-Rate-Limit:
+              type: integer
+              format: int32
+              description: calls per hour allowed by the contact
+            X-Expires-After:
+              type: string
+              format: date-time
+              description: date in UTC when token expires
+        400:
+          description: Invalid contact Id supplied
+          
+  /contact/logout:
+    get:
+      tags:
+      - contact
+      summary: Logs out current contact from session
+      operationId: logoutContact
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        default:
+          description: successful operation
+          
+  /contact/{contactId}:
+    get:
+      tags:
+      - contact
+      summary: Get contact by Id
+      description: Returns a single contact
+      operationId: getContact
+      produces:
+      - application/json
+      parameters:
+      - name: contactId
+        in: path
+        description: Id of contact to return 
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/contact'
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Contact not found
+
+    put:
+      tags:
+      - contact
+      summary: Updated contact by Id
+      description: This can only be done by the logged in user.
+      operationId: updateContact
+      produces: 
+      - application/json
+      parameters:
+      - name: contactId
+        in: path
+        description: Id of contact to update
+        required: true
+        type: string
+      responses:
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Contact not found
+      
+    delete:
+      tags:
+      - contact
+      summary: Delete contact by Id
+      description: This can only be done by the logged in contact.
+      operationId: deleteContact
+      produces:
+      - application/json
+      parameters:
+      - name: contactId
+        in: path
+        description: Id of contact to delete
+        required: true
+        type: string
+      responses:
+        400:
+          description: Invalid Id supplied
+        404:
+          description: Contact not found
+          
+securityDefinitions:
+  artwork_auth:
+    type: oauth2
+    authorizationUrl: http://artwork.swagger.io/oauth/dialog
+    flow: implicit
+    scopes:
+      write:artwork: modify artwork in your account
+      read:artwork: read your artwork
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+
+definitions:
+  contact:
+    type: object
+    required:
+    - username
+    - password
+    properties:
+      Id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string     
+      role:
+        type: string        
+      username:
+        type: string        
+      password:
+        type: string
+    xml:
+      name: contact
+      
+  artwork:
+    type: object
+    required:
+    - artTitle
+    properties:
+      Id:
+        type: string
+      artTitle:
+        type: string
+      artYear: 
+        type: string
+        example: 9999
+      artPeriod: 
+        type: string
+      artDesc: 
+        type: string
+      artType: 
+        type: string
+      artLocation: 
+        type: string
+      artDonated: 
+        type: string
+      artFile: 
+        type: string
+    xml:
+      name: artwork

@@ -3,14 +3,14 @@ const router = express.Router();
 
 const contactController = require('../controllers/contact');
 
-router.get('/', contactController.getAll);
+const validation = require('../middleware/validate');
+const isLoggedIn = require('../middleware/auth.js');
 
-router.get('/:id', contactController.getSingle);
+//Contact routes
+router.get('/', isLoggedIn, contactController.getAllContact);
+router.get('/:id', isLoggedIn, contactController.getContact);
+router.post('/', isLoggedIn, validation.saveContact, contactController.createContact);
+router.put('/:id', isLoggedIn, validation.saveContact, contactController.updateContact);
+router.delete('/:id', isLoggedIn, contactController.deleteContact);
 
-router.post('/', contactController.createContact);
-
-router.put('/:id', contactController.updateContact);
-
-router.delete('/:id', contactController.deleteContact);
-
-module.exports = router;
+module.exports = router; 

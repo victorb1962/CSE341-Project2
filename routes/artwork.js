@@ -3,14 +3,14 @@ const router = express.Router();
 
 const artworkController = require('../controllers/artwork');
 
-router.get('/', artworkController.getAll);
+const validation = require('../middleware/validate');
+const isLoggedIn = require('../middleware/auth.js');
 
-router.get('/:id', artworkController.getSingle);
+//Artwork routes
+router.get('/', isLoggedIn, artworkController.getAllArtwork);
+router.get('/:id', isLoggedIn, artworkController.getArtwork);
+router.post('/', isLoggedIn, validation.saveArtwork, artworkController.createArtwork);
+router.put('/:id', isLoggedIn, validation.saveArtwork, artworkController.updateArtwork);
+router.delete('/:id', isLoggedIn, artworkController.deleteArtwork);
 
-router.post('/', artworkController.createArtwork);
-
-router.put('/:id', artworkController.updateArtwork);
-
-router.delete('/:id', artworkController.deleteArtwork);
-
-module.exports = router;
+module.exports = router; 
