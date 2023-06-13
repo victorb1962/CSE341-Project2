@@ -36,10 +36,18 @@ Run npm install and npm start from the backend folder in the terminal
 
 Start MongoDB connection in VS Code
 Don't forget to create the .env file. If you are unsure of how to do this, watch the stretch solution video.
+Environmental Variables required for:
+
+- MongoDB connection
+- Github authentication
+- Auhto0 authentication - if used
 
 ## Testing
 
 Test the endpoints in the routes.rest file with Rest Client or another similar tool.
+
+- Validation is difficult to test locally due to authentication setup.
+- Deply and test from production: https://victor-341w05.onrender.com
 
 1. Browser test (local):
 
@@ -50,7 +58,7 @@ Test the endpoints in the routes.rest file with Rest Client or another similar t
      http://localhost:3000/artwork
      http://localhost:3000/contact
 
-2. Test validation rules with:
+2. Test validation rules with (may have to do this from production):
 
    - GET / contact /
    - GET / contact / {id}
@@ -61,7 +69,7 @@ Test the endpoints in the routes.rest file with Rest Client or another similar t
 - npm run lint - helps to enforce packge.json standards
 - npm run format
 - edit swagger.js To use production host: https://victor-341w01.onrender.com/
-- npm run swagger To recreate swagger.json
+- npm run swagger To recreate swagger.json - if not using a custom design
 
 4. Push to GitHub
 5. Confirm sync with Render

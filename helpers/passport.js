@@ -15,7 +15,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_SECRET,
-      callbackURL: 'https://victor-341w05.onrender.com/oauth-callback'
+      callbackURL: "https://victor-341w05.onrender.com/oauth-callback"
       // callbackURL: "http://localhost:3000/oauth-callback"
     },
     function (accessToken, refreshToken, profile, done) {
