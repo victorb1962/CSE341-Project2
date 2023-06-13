@@ -120,7 +120,7 @@
             "description": "Precondition Failed"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error1"
           }
         }
       }
@@ -201,7 +201,7 @@
             "description": "Precondition Failed"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error2"
           }
         }
       },
@@ -221,7 +221,7 @@
             "description": "OK"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error3"
           }
         }
       }
@@ -286,7 +286,7 @@
             "description": "Precondition Failed"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error4"
           }
         }
       }
@@ -365,7 +365,7 @@
             "description": "Precondition Failed"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error5"
           }
         }
       },
@@ -385,7 +385,7 @@
             "description": "OK"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error6"
           }
         }
       }
