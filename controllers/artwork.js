@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 //Get all artwork
-const getAllArtwork = async (req, res, next) => {
+const getAllArtwork = async (req, res) => {
   try {
     mongodb
       .getDb()
@@ -22,7 +22,7 @@ const getAllArtwork = async (req, res, next) => {
 };
 
 //GET single artwork based on id
-const getArtwork = async (req, res, next) => {
+const getArtwork = async (req, res) => {
   try {
     const artworkId = new ObjectId(req.params.id);
     mongodb
@@ -43,7 +43,7 @@ const getArtwork = async (req, res, next) => {
 };
 
 //POST artwork
-const createArtwork = async (req, res, next) => {
+const createArtwork = async (req, res) => {
   try {
     //Data to add
     const artwork = {
@@ -83,7 +83,7 @@ const createArtwork = async (req, res, next) => {
 };
 
 //PUT artwork
-const updateArtwork = async (req, res, next) => {
+const updateArtwork = async (req, res) => {
   try {
     //ID for update
     const artworkId = new ObjectId(req.params.id);
@@ -125,7 +125,7 @@ const updateArtwork = async (req, res, next) => {
 };
 
 //DELETE artwork
-const deleteArtwork = async (req, res, next) => {
+const deleteArtwork = async (req, res) => {
   try {
     //ID for delete
     const artworkId = new ObjectId(req.params.id);

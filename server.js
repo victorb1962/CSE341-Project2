@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
 const bodyParser = require('body-parser');
-const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
+// const axios = require('axios');
+// const { auth, requiresAuth } = require('express-openid-connect');
 
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
 const routes = require('./routes');
 //const session = require('express-session');
@@ -14,16 +14,6 @@ const passport = require('passport');
 require('./helpers/passport');
 
 const port = process.env.PORT || 3000;
-
-// Auth0 setup here and in .env file
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.SECRET,
-  baseURL: process.env.BASE_URL,
-  clientID: process.env.CLIENT_ID,
-  issuerBaseURL: process.env.ISSUER_BASE_URL
-};
 
 app.use(
   cookieSession({
@@ -54,14 +44,14 @@ app
   })
   .use('/', routes);
 
-process.on('uncaughtException', (err, origin) => {
-  console.log(process.stderr.fd, 'caught exception: ${err}\n' + 'Exception origin: ${origin}');
-});
+// process.on('uncaughtException', (err, origin) => {
+//   console.log(process.stderr.fd, 'caught exception: ${err}\n' + 'Exception origin: ${origin}');
+// });
 
 //Establish a connection to the mongodb database
-mongodb.initDb((err, mongodb) => {
+mongodb.initDb((err) => {
   if (err) {
-    console.log(err);
+    console.log('Connection to database failed: ' + err);
   } else {
     app.listen(port);
     console.log(`Connected to DB and listening on ${port}`);

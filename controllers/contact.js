@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 const passwordUtil = require('../helpers/passwordComplexityCheck');
 
 //Get all contacts
-const getAllContact = async (req, res, next) => {
+const getAllContact = async (req, res) => {
   try {
     mongodb
       .getDb()
@@ -23,7 +23,7 @@ const getAllContact = async (req, res, next) => {
 };
 
 //GET single contact based on id
-const getContact = async (req, res, next) => {
+const getContact = async (req, res) => {
   //Validation check
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('A valid contact id required to find a contact.');
@@ -50,7 +50,7 @@ const getContact = async (req, res, next) => {
 };
 
 //POST contact
-const createContact = async (req, res, next) => {
+const createContact = async (req, res) => {
   try {
     //Data to add
     const contact = {
@@ -81,7 +81,7 @@ const createContact = async (req, res, next) => {
 };
 
 //PUT contact
-const updateContact = async (req, res, next) => {
+const updateContact = async (req, res) => {
   //Validation check
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('A valid contact id required to find a contact.');
@@ -133,7 +133,7 @@ const updateContact = async (req, res, next) => {
 };
 
 //DELETE contact
-const deleteContact = async (req, res, next) => {
+const deleteContact = async (req, res) => {
   //Validation checking
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('A valid contact id required to find a contact.');
