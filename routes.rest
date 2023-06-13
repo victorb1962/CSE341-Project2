@@ -35,7 +35,8 @@ GET http://localhost:3000/contact/647590edd000510a473629b1 HTTP/1.1
 
 // PRODUCTION Deploy
 
-GET http://victor-341w05.onrender.com/api-docs HTTP/1.1
+### GET api-docs
+GET https://victor-341w05.onrender.com/api-docs
 
 ### GET all artwork
 GET https://victor-341w05.onrender.com/artwork
