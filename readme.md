@@ -15,25 +15,32 @@ Run npm install and npm start from the backend folder in the terminal
 - Run the following in the terminal:
 - npm install
 - npm install mongodb express dotenv
-- npm install joi
-- npm install joi-password-complexity
+- npm install axios passport passport-github2 cookie-session validatorjs
 - npm install body-parser --save
 - npm install express-validator cors --save
 - npm install express express-openid-connect --save
 
-- npm install eslint-config-prettier eslint-plugin-prettier prettier --dev
-- npm run lint   VERY USEFUL to validate your code structure
-- npm run format
+- npm install joi joi-password-complexity
 
 - npm install --save-dev swagger-autogen See https://www.npmjs.com/package/swagger-autogen
 - npm install swagger-ui-express See https://www.npmjs.com/package/swagger-ui-express
 - npm run swagger To recreate swagger.json
+
+- npm install eslint-config-prettier eslint-plugin-prettier prettier --dev
+- npm run lint
+- npm run format
+
 - npm start
 
 ## Environment variables
 
 Start MongoDB connection in VS Code
 Don't forget to create the .env file. If you are unsure of how to do this, watch the stretch solution video.
+
+Environmental Variables required for:
+- MongoDB connection
+- Github authentication
+- Auhto0 authentication - if used
 
 ## Testing
 
@@ -124,6 +131,9 @@ Test the endpoints in the routes.rest file with Rest Client or another similar t
 - Confirm sync with Render
 
 ## Week 8 - Auth0 continued
+
+w08_personal_alt was an attempt to use advanced feature trying to integrator with GitHub but due to time and 
+so many other consreations, I had to abandon this and rol back to my w07_personal working solution.
 
 ### Final checklist
 
