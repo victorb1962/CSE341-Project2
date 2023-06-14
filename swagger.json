@@ -5,10 +5,10 @@
     "description": "Artwork & Art Curator APIs",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "victor-341w05.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/artwork/": {
