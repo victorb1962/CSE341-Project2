@@ -5,7 +5,7 @@ GET http://localhost:3000/api-docs HTTP/1.1
 GET http://localhost:3000/artwork/ HTTP/1.1
 
 ### GET artwork by id
-GET http://localhost:3000/artwork/644f6c8d9823b4c1e691b60a HTTP/1.1
+GET http://localhost:3000/artwork/644f6ca79823b4c1e6920401 HTTP/1.1
 
 ### CREATE artwork
 POST http://localhost:3000/artwork HTTP/1.1 
@@ -30,13 +30,12 @@ DELETE http://localhost:3000/artwork/63e859e9bd16449396cca6ad HTTP/1.1
 GET http://localhost:3000/contact/ HTTP/1.1
 
 ### GET contact by id
-GET http://localhost:3000/contact/647590edd000510a473629b1 HTTP/1.1
+GET http://localhost:3000/contact/647590edd000510a473629b3 HTTP/1.1
 
 
 // PRODUCTION Deploy
 
-### GET api-docs
-GET https://victor-341w05.onrender.com/api-docs
+GET http://victor-341w05.onrender.com/api-docs HTTP/1.1
 
 ### GET all artwork
 GET https://victor-341w05.onrender.com/artwork

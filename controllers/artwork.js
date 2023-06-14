@@ -1,51 +1,33 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-//Get all artwork
 const getAllArtwork = async (req, res) => {
   try {
-    mongodb
-      .getDb()
-      .db()
-      .collection('artwork')
-      .find()
-      .toArray((err, lists) => {
-        if (err) {
-          res.status(400).json({ message: err });
-        }
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists);
-      });
+    const result = await mongodb.getDb().db().collection('artwork').find();
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists);
+    });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: err.message });
   }
 };
 
-//GET single artwork based on id
 const getArtwork = async (req, res) => {
   try {
     const artworkId = new ObjectId(req.params.id);
-    mongodb
-      .getDb()
-      .db()
-      .collection('artwork')
-      .find({ _id: artworkId })
-      .toArray((err, result) => {
-        if (err) {
-          res.status(400).json({ message: err });
-        }
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(result[0]);
-      });
+    const result = await mongodb.getDb().db().collection('artwork').find({ _id: artworkId });
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-//POST artwork
 const createArtwork = async (req, res) => {
   try {
-    //Data to add
     const artwork = {
       artTitle: req.body.artTitle,
       artYear: req.body.artYear,
@@ -54,40 +36,23 @@ const createArtwork = async (req, res) => {
       artType: req.body.artType,
       artLocation: req.body.artLocation,
       artDonated: req.body.artDonated,
-      artFile: req.body.artFile,
+      artFile: req.body.artFile
     };
-
-    //Operation
-    const result = await mongodb
-      .getDb()
-      .db()
-      .collection('artwork')
-      .insertOne(artwork);
-
-    //Response
-    if (result.acknowledged) {
-      res.status(201).json(result);
+    const response = await mongodb.getDb().db().collection('artwork').insertOne(artwork);
+    if (response.acknowledged) {
+      res.status(201).json(response);
     } else {
-      res
-        .status(500)
-        .json(
-          result.error || 'Some error occurred while creating the artwork.'
-        );
+      res.status(500).json(response.error || 'Some error occurred while creating the artwork.');
     }
-
-    //Console confirmation
-    console.log(`${result.modifiedCount} document(s) created.`);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-//PUT artwork
 const updateArtwork = async (req, res) => {
   try {
-    //ID for update
     const artworkId = new ObjectId(req.params.id);
-    //Data to update
+    // be aware of updateOne if you only want to update specific fields
     const artwork = {
       artTitle: req.body.artTitle,
       artYear: req.body.artYear,
@@ -96,56 +61,37 @@ const updateArtwork = async (req, res) => {
       artType: req.body.artType,
       artLocation: req.body.artLocation,
       artDonated: req.body.artDonated,
-      artFile: req.body.artFile,
+      artFile: req.body.artFile
     };
-
-    //Operation
-    const result = await mongodb
+    const response = await mongodb
       .getDb()
       .db()
       .collection('artwork')
       .replaceOne({ _id: artworkId }, artwork);
-
-    //Response
-    if (result.acknowledged) {
-      res.status(201).json(result);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
     } else {
-      res
-        .status(500)
-        .json(
-          result.error || 'Some error occurred while creating the artwork.'
-        );
+      res.status(500).json(response.error || 'Some error occurred while updating the artwork.');
     }
-
-    //Console confirmation
-    console.log(`${result.modifiedCount} document(s) created.`);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-//DELETE artwork
 const deleteArtwork = async (req, res) => {
   try {
-    //ID for delete
     const artworkId = new ObjectId(req.params.id);
-
-    //Operation
-    const result = await mongodb
+    const response = await mongodb
       .getDb()
       .db()
       .collection('artwork')
-      .deleteOne({ _id: artworkId });
-
-    //Response
-    if (result.deletedCount > 0) {
-      res.status(200).send();
+      .remove({ _id: artworkId }, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+      res.status(204).send();
     } else {
-      res
-        .status(500)
-        .json(
-          result.error || 'Some error occurred while deleting the artwork.'
-        );
+      res.status(500).json(response.error || 'Some error occurred while deleting the artwork.');
     }
   } catch (err) {
     res.status(500).json(err);
@@ -157,5 +103,5 @@ module.exports = {
   getArtwork,
   createArtwork,
   updateArtwork,
-  deleteArtwork 
+  deleteArtwork
 };

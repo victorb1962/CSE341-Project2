@@ -1,4 +1,3 @@
-//get validator
 const validator = require('../helpers/validate');
 
 const saveContact = (req, res, next) => {
@@ -6,16 +5,17 @@ const saveContact = (req, res, next) => {
     firstName: 'required|string',
     lastName: 'required|string',
     email: 'required|email',
+    phone: 'required|string',
+    role: 'required|string',
     username: 'required|string',
-    password: 'required|string',
+    password: 'required|string'
   };
-
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
         success: false,
         message: 'Validation failed',
-        data: err,
+        data: err
       });
     } else {
       next();
@@ -30,14 +30,16 @@ const saveArtwork = (req, res, next) => {
     artPeriod: 'required|string',
     artDesc: 'required|string',
     artType: 'required|string',
-    artLocation: 'string',
+    artLocation: 'required|string',
+    artDonated: 'required|string',
+    artFile: 'required|string'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
         success: false,
         message: 'Validation failed',
-        data: err,
+        data: err
       });
     } else {
       next();
@@ -47,5 +49,5 @@ const saveArtwork = (req, res, next) => {
 
 module.exports = {
   saveContact,
-  saveArtwork 
+  saveArtwork
 };

@@ -5,7 +5,7 @@
     "description": "Artwork & Art Curator APIs",
     "version": "1.0.0"
   },
-  "host": "victor-341w05.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
@@ -15,10 +15,14 @@
     {
       "name": "Artwork",
       "description": "Requests related to artwork (Requires Log in to access)"
+    },
+    {
+      "name": "Not Yet Implemented",
+      "description": "These API endpoints are designed and will be created in the near future"
     }
   ],
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {
